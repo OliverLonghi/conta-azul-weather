@@ -2,6 +2,7 @@
 
 :host {
   width: 250px;
+  min-height: 250px;
   border: 1px solid @divider;
   border-radius: 6px !important;
 
@@ -10,8 +11,7 @@
   align-items: stretch;
   justify-content: space-between;
   
-  margin-bottom: 30px;
-
+  margin: 30px;
 
   .city-name {
     flex-grow: 1;
@@ -24,12 +24,13 @@
     border-bottom: 1px solid @divider;
     font-size: 1.2em;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 12px;
   }
 
   .city-temperature {
     flex-grow: 1;
     width: 100%;
+    height: 140px;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
@@ -58,7 +59,7 @@
         text-transform: uppercase;
         color: @font-light;
         font-size: 0.75em;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
       }
       .content {
         color: @font-dark;
@@ -69,10 +70,10 @@
 
   .city-updated-at {
     box-sizing: border-box;
-    padding: 5px 0px 15px 0px;
+    padding: 0px 0px 15px 0px;
     flex-grow: 1;
     width: 100%;
-    background-color: @card-footer-bg !important;
+    background-color: @card-footer-bg;
     display: flex;
     justify-content: center;
     align-items: center;

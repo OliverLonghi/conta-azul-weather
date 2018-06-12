@@ -1,9 +1,21 @@
 @import "../assets/less/variables.less";
 
 :host {
-  margin-top: 90px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  @media all and (min-width: 1200px) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
