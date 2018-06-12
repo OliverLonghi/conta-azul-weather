@@ -1,0 +1,95 @@
+@import "../../assets/less/variables.less";
+
+:host {
+  width: 250px;
+  border: 1px solid @divider;
+  border-radius: 6px !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  
+  margin-bottom: 30px;
+
+
+  .city-name {
+    flex-grow: 1;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @font-dark;
+    border-bottom: 1px solid @divider;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .city-temperature {
+    flex-grow: 1;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @temp-medium;
+    font-size: 6.0em;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .city-details {
+    flex-grow: 1;
+    width: 100%;
+    background-color: @card-footer-bg;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    div {
+      box-sizing: border-box;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .title {
+        text-transform: uppercase;
+        color: @font-light;
+        font-size: 0.75em;
+        padding-bottom: 10px;
+      }
+      .content {
+        color: @font-dark;
+        font-size: 1em;
+      }
+    }
+  }
+
+  .city-updated-at {
+    box-sizing: border-box;
+    padding: 5px 0px 15px 0px;
+    flex-grow: 1;
+    width: 100%;
+    background-color: @card-footer-bg !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @font-light;
+    font-size: .75em;
+  }
+
+  .hot {
+    color: @temp-hot;
+  }
+
+  .medium {
+    color: @temp-medium;
+  }
+
+  .low {
+    color: @temp-low;
+  }
+
+}
