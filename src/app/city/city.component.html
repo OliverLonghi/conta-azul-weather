@@ -3,7 +3,7 @@
 </div>
 <div class="city-temperature {{getFontColor()}}" *ngIf="!(temperature?.failed)">
   <img src="./assets/images/loader.svg" *ngIf="loading">
-  {{temperature?.temperature | number:'1.0-0'}}&deg;
+  {{((temperature?.temperature || 0) | number:'1.0-0') + '&deg;'}}
 </div>
 <div class="city-error" *ngIf="temperature?.failed">
   <div>

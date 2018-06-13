@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Temperature } from '../temperature';
 import { WeatherService } from '../services/weather.service';
 
@@ -7,7 +7,7 @@ import { WeatherService } from '../services/weather.service';
   templateUrl: './city.component.html',
   styleUrls: ['./city.component.less']
 })
-export class CityComponent implements OnInit {
+export class CityComponent implements OnInit, OnDestroy {
 
   @Input() temperature : Temperature;
 
@@ -17,12 +17,22 @@ export class CityComponent implements OnInit {
 
   @Input() show_details : boolean = false;
 
+  interval : any = null;
+
   loading : boolean = false;
 
   constructor(private weatherService : WeatherService) { }
 
   ngOnInit() {
     this.load();
+    this.interval = setInterval(async () => {
+      console.log('reloading', this.city_name);
+      await this.load();
+    }, 60000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
   async load() {
