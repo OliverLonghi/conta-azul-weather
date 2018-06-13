@@ -1,16 +1,25 @@
 <div class="city-name">
-  Cidade
+  {{temperature?.city ? (temperature.city + ', ' + temperature.country) : city_name}}
 </div>
-<div class="city-temperature hot">
-  20
+<div class="city-temperature {{getFontColor()}}" *ngIf="!(temperature?.failed)">
+  <img src="./assets/images/loader.svg" *ngIf="loading">
+  {{temperature?.temperature | number:'1.0-0'}}&deg;
 </div>
-<div class="city-details">
+<div class="city-error" *ngIf="temperature?.failed">
+  <div>
+    Something went wrong
+  </div>
+  <button (click)="load()">
+    Try Again
+  </button>
+</div>
+<div class="city-details" *ngIf="!(temperature?.failed) && show_details">
   <div>
     <span class="title">
       Humidity
     </span>
     <span class="content">
-      Conteúdo
+      {{temperature?.humidity | number:'1.0-0'}}%
     </span>
   </div>
   <div>
@@ -18,10 +27,10 @@
       Pressure
     </span>
     <span class="content">
-      75%
+      {{temperature?.pressure | number:'1.0-0'}}hPa
     </span>
   </div>
 </div>
-<div class="city-updated-at">
-  Updated at
+<div class="city-updated-at" *ngIf="!(temperature?.failed)">
+  Updated at {{temperature?.updated_at | date : 'h:mm:ss a'}}
 </div>
